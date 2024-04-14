@@ -1,0 +1,81 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Welcome{% endblock %}
+
+{% block content %}
+<div class="py-20 text-center space-y-12">
+    <h1 class="text-7xl text-slate-300 font-bold">Get paid for your work</h1>
+
+    <p class="text-xl text-slate-400">
+        This is just some random information to show how it would look like with some actual content.
+    </p>
+
+    <a href="{% url 'creator:signup' %}" class="py-8 px-12 inline-block text-xl text-white bg-sky-800 rounded-lg">Create page</a>
+</div>
+
+<div class="py-12 bg-slate-800">
+    <h2 class="mb-12 text-5xl text-slate-300 text-center font-bold">
+        Newest creators
+    </h2>
+
+    <div class="px-12 grid grid-cols-4 gap-8">
+        <div class="bg-slate-600 rounded-lg">
+            <figure>
+                <img src="{% static 'images/profile_pic_1.jpg' %}" class="rounded-tr-lg rounded-tl-lg">
+            </figure>
+
+            <div class="py-6 px-8 space-y-6">
+                <h3 class="text-xl text-slate-200 font-bold">John Dog</h3>
+
+                <p class="text-slate-300">This is just some random information to show how it would look like with some actual content.</p>
+
+                <a href="#" class="py-4 px-6 inline-block text-xl text-white bg-sky-800 rounded-xl">Read more</a>
+            </div>
+        </div>
+
+        <div class="bg-slate-600 rounded-lg">
+            <figure>
+                <img src="{% static 'images/profile_pic_1.jpg' %}" class="rounded-tr-lg rounded-tl-lg">
+            </figure>
+
+            <div class="py-6 px-8 space-y-6">
+                <h3 class="text-xl text-slate-200 font-bold">John Dog</h3>
+
+                <p class="text-slate-300">This is just some random information to show how it would look like with some actual content.</p>
+
+                <a href="#" class="py-4 px-6 inline-block text-xl text-white bg-sky-800 rounded-xl">Read more</a>
+            </div>
+        </div>
+
+        <div class="bg-slate-600 rounded-lg">
+            <figure>
+                <img src="{% static 'images/profile_pic_1.jpg' %}" class="rounded-tr-lg rounded-tl-lg">
+            </figure>
+
+            <div class="py-6 px-8 space-y-6">
+                <h3 class="text-xl text-slate-200 font-bold">John Dog</h3>
+
+                <p class="text-slate-300">This is just some random information to show how it would look like with some actual content.</p>
+
+                <a href="#" class="py-4 px-6 inline-block text-xl text-white bg-sky-800 rounded-xl">Read more</a>
+            </div>
+        </div>
+
+        <div class="bg-slate-600 rounded-lg">
+            <figure>
+                <img src="{% static 'images/profile_pic_1.jpg' %}" class="rounded-tr-lg rounded-tl-lg">
+            </figure>
+
+            <div class="py-6 px-8 space-y-6">
+                <h3 class="text-xl text-slate-200 font-bold">John Dog</h3>
+
+                <p class="text-slate-300">This is just some random information to show how it would look like with some actual content.</p>
+
+                <a href="#" class="py-4 px-6 inline-block text-xl text-white bg-sky-800 rounded-xl">Read more</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}{{ creator.title }}{% endblock %}
+
+{% block content %}
+<div class="py-20 grid grid-cols-3 items-center">
+    <figure class="col-span-1">
+        <img src="{{ creator.image.url }}" class="rounded-lg">
+    </figure>
+
+    <div class="col-span-2 space-y-12 text-center">
+        <h1 class="text-7xl text-slate-300 font-bold">{{ creator.title }}</h1>
+
+        <p class="text-xl text-slate-400">
+            {{ creator.description }}
+        </p>
+    </div>
+</div>
+
+<div class="py-12 bg-slate-800">
+    <div class="px-12">
+        <h2 class="mb-12 text-5xl text-slate-300 text-center font-bold">Support me</h2>
+
+        <p class="text-xl text-slate-400 text-center">
+            This is just some random infokajs dflja sldkfj alsk jdflkasjlkf jsalkdf
+        </p>
+
+        <div class="mt-12 flex flex-row space-x-4 items-center justify-center">
+            <a href="#" class="py-4 px-6 inline-block text-xl text-white bg-sky-800 rounded-lg">
+                Buy me "1" noodle $1
+            </a>
+
+            <a href="#" class="py-4 px-6 inline-block text-xl text-white bg-sky-800 rounded-lg">
+                Buy me "2" noodle $2
+            </a>
+
+            <a href="#" class="py-4 px-6 inline-block text-xl text-white bg-sky-800 rounded-lg">
+                Buy me "5" noodle $5
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

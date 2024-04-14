@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}{{ creator.title }}{% endblock %}
+
+{% block content %}
+<div class="py-20 grid grid-cols-3 items-center">
+    <figure class="col-span-1">
+        <img src="{{ creator.image.url }}" class="rounded-lg">
+    </figure>
+
+    <div class="col-span-2 space-y-12 text-center">
+        <h1 class="text-7xl text-slate-300 font-bold">{{ creator.title }}</h1>
+
+        <p class="text-xl text-slate-400">
+            {{ creator.description }}
+        </p>
+    </div>
+</div>
+
+<div class="py-12 bg-slate-800">
+    <div class="px-12">
+        <h2 class="mb-12 text-5xl text-slate-300 text-center font-bold">My supporters</h2>
+
+        <p class="text-xl text-slate-400 text-center">
+            This is just some random infokajs dflja sldkfj alsk jdflkasjlkf jsalkdf
+        </p>
+
+        <div class="mt-12 text-center text-white space-y-5">
+            <p class="text-xl">john@doe.com - One noodle = $1 (April 12, 2024)</p>
+
+            <hr>
+
+            <p class="text-xl font-bold">Total: $1</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

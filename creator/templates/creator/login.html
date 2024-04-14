@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Log in {% endblock %}
+
+{% block content %}
+<div class="py-20 text-center">
+    <h1 class="text-7xl text-slate-300 font-bold">Log in</h1>
+</div>
+
+<div class="max-w-lg mx-auto px-8 py-12 bg-slate-800">
+    <form method="post" action="." class="space-y-6">
+        {% csrf_token %}
+        
+        <div class="space-y-4">
+            <label for="id_username" class="text-lg text-white">Username:</label>
+
+            <input type="text" class="w-full py-6 px-8 bg-slate-600 text-white font-bold rounded-lg" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+        </div>
+
+        <div class="space-y-4">
+            <label for="id_password" class="text-lg text-white">Password:</label>
+
+            <input type="password" class="w-full py-6 px-8 bg-slate-600 text-white font-bold rounded-lg" name="password" autocomplete="current-password" required="" id="id_password">
+        </div>
+
+        {% if form.errors %}
+            <div class="py-6 px-8 bg-amber-600 text-white rounded-lg">
+                <p>Username or password is not correct!</p>
+            </div>
+        {% endif %}
+
+        <div>
+            <button class="w-full py-6 px-8 bg-sky-800 text-white font-bold rounded-lg">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

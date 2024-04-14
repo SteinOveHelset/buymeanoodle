@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <title>{% block title %}{% endblock %} | Buy me a noodle</title>
+    </head>
+
+    <body class="bg-slate-700">
+        <nav class="py-8 px-8 flex flex-row items-center justify-between bg-slate-900">
+            <div>
+                <a href="{% url 'core:index' %}" class="text-2xl text-white font-bold">Buy me a noodle</a>
+            </div>
+
+            <div class="space-x-6">
+                <a href="{% url 'creator:creators' %}" class="py-4 px-6 text-lg font-bold text-white">Creators</a>
+
+                {% if not request.user.is_authenticated %}
+                    <a href="{% url 'creator:login' %}" class="py-4 px-6 text-lg font-bold text-white">Log in</a>
+                    <a href="{% url 'creator:signup' %}" class="py-4 px-6 text-lg font-bold text-white bg-sky-800 rounded-lg">Sign up</a>
+                {% endif %}
+
+                {% if request.user.is_authenticated %}
+                    <a href="{% url 'creator:mypage' %}" class="py-4 px-6 text-lg font-bold text-white bg-sky-800 rounded-lg">My page</a>
+                {% endif %}
+            </div>
+        </nav>
+
+        <main class="py-6 px-8">
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        <footer class="py-6 px-8 text-center bg-slate-600">
+            <p class="text-slate-200">Copyright (c) 2024 - Buy me a noodle</p>
+        </footer>
+    </body>
+</html>

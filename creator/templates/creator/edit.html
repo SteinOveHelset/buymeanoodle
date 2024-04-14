@@ -1,0 +1,23 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Edit{% endblock %}
+
+{% block content %}
+<div class="py-20 text-center space-y-12">
+    <h1 class="text-7xl text-slate-300 font-bold">Edit</h1>
+</div>
+
+<div class="py-12 bg-slate-800 text-blue-500">
+    <form method="post" action="." enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+
+        <div>
+            <button class="w-full py-6 px-8 bg-sky-800 text-white font-bold rounded-lg">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

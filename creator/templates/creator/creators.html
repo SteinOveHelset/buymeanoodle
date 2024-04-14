@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Creators{% endblock %}
+
+{% block content %}
+<div class="py-20 text-center space-y-12">
+    <h1 class="text-7xl text-slate-300 font-bold">Creators</h1>
+</div>
+
+<div class="py-12 bg-slate-800">
+    <div class="px-12 grid grid-cols-4 gap-8">
+        {% for creator in creators %}
+            <div class="bg-slate-600 rounded-lg">
+                <figure>
+                    <img src="{{ creator.image.url }}" class="rounded-tr-lg rounded-tl-lg">
+                </figure>
+
+                <div class="py-6 px-8 space-y-6">
+                    <h3 class="text-xl text-slate-200 font-bold">{{ creator.title }}</h3>
+
+                    <p class="text-slate-300">
+                        {{ creator.description }}
+                    </p>
+
+                    <a href="{% url 'creator:creator' creator.pk %}" class="py-4 px-6 inline-block text-xl text-white bg-sky-800 rounded-xl">Read more</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
