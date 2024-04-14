@@ -27,19 +27,63 @@
             This is just some random infokajs dflja sldkfj alsk jdflkasjlkf jsalkdf
         </p>
 
+        <div class="mt-12">
+            <label>Your email address:</label><br>
+            <input type="email" name="email" id="id_email">
+        </div>
+
         <div class="mt-12 flex flex-row space-x-4 items-center justify-center">
-            <a href="#" class="py-4 px-6 inline-block text-xl text-white bg-sky-800 rounded-lg">
+            <a href="#" onclick="buy(1)" class="py-4 px-6 inline-block text-xl text-white bg-sky-800 rounded-lg">
                 Buy me "1" noodle $1
             </a>
 
-            <a href="#" class="py-4 px-6 inline-block text-xl text-white bg-sky-800 rounded-lg">
+            <a href="#" onclick="buy(2)" class="py-4 px-6 inline-block text-xl text-white bg-sky-800 rounded-lg">
                 Buy me "2" noodle $2
             </a>
 
-            <a href="#" class="py-4 px-6 inline-block text-xl text-white bg-sky-800 rounded-lg">
+            <a href="#" onclick="buy(5)" class="py-4 px-6 inline-block text-xl text-white bg-sky-800 rounded-lg">
                 Buy me "5" noodle $5
             </a>
         </div>
     </div>
 </div>
+
+<form method="post" action=".">
+    {% csrf_token %}
+
+    <input type="hidden" id="creator_id" value="{{ creator.id }}">
+</form>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    console.log('Creator page');
+
+    async function buy(amount) {
+        console.log('Buy', amount);
+
+        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        const creatorId = document.getElementById('creator_id').value;
+        const email = document.getElementById('id_email').value;
+
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('creator_id', creatorId);
+        formData.append('amount', amount);
+
+        const response = await fetch('/api/create_support/', {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrftoken
+            },
+            body: formData
+        });
+
+        const data = await response.json();
+
+        console.log('data:', data);
+
+        window.location.href = data.url;
+    }
+</script>
 {% endblock %}

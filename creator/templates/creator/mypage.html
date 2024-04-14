@@ -28,11 +28,13 @@
         </p>
 
         <div class="mt-12 text-center text-white space-y-5">
-            <p class="text-xl">john@doe.com - One noodle = $1 (April 12, 2024)</p>
+            {% for support in supports %}
+                <p class="text-xl">{{ support.email }} - {% if support.amount == 1 %}One noodle{% elif support.amount == 2 %}Two noodles{% endif %} = ${{support.amount}} ({{ support.created_at }})</p>
+            {% endfor %}
 
             <hr>
 
-            <p class="text-xl font-bold">Total: $1</p>
+            <p class="text-xl font-bold">Total: ${{ total }}</p>
         </div>
     </div>
 </div>
